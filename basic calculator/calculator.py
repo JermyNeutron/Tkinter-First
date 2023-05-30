@@ -12,23 +12,37 @@ e.grid(row=0, column=0, columnspan=3, padx=10, pady=10)
 
 # add value function
 def button_click(number):
-    pass
+    # END deletes entry
+    # e.delete(0, END)
+
+    # but we don't want to delete the numbers if they're more than single digits, and we want the digit to go after the current number.
+    current = e.get()
+    # we want to add the number but not repeat. so we capture and then delete to add at the end
+    e.delete(0, END)
+    e.insert(0, str(current) + str(number))
+
+# we want to be able to clear the calculator
+def clear():
+    e.delete(0, END)
 
 # define buttons
 
-button_1 = Button(root, text="1", padx=40, pady=20, command=button_click)
-button_2 = Button(root, text="2", padx=40, pady=20, command=button_click)
-button_3 = Button(root, text="3", padx=40, pady=20, command=button_click)
-button_4 = Button(root, text="4", padx=40, pady=20, command=button_click)
-button_5 = Button(root, text="5", padx=40, pady=20, command=button_click)
-button_6 = Button(root, text="6", padx=40, pady=20, command=button_click)
-button_7 = Button(root, text="7", padx=40, pady=20, command=button_click)
-button_8 = Button(root, text="8", padx=40, pady=20, command=button_click)
-button_9 = Button(root, text="9", padx=40, pady=20, command=button_click)
-button_0 = Button(root, text="0", padx=40, pady=20, command=button_click)
-button_clear = Button(root, text="C", padx=39, pady=20, command=button_click)
-button_addition = Button(root, text="+", padx=87, pady=20, command=button_click)
-button_equal = Button(root, text="=", padx=87, pady=20, command=button_click)
+# button_1 = Button(root, text="1", padx=40, pady=20, command=button_click)
+# because we can't pass arguments inside buttons, we'll need to use lambda
+
+button_1 = Button(root, text="1", padx=40, pady=20, command=lambda: button_click(1))
+button_2 = Button(root, text="2", padx=40, pady=20, command=lambda: button_click(2))
+button_3 = Button(root, text="3", padx=40, pady=20, command=lambda: button_click(3))
+button_4 = Button(root, text="4", padx=40, pady=20, command=lambda: button_click(4))
+button_5 = Button(root, text="5", padx=40, pady=20, command=lambda: button_click(5))
+button_6 = Button(root, text="6", padx=40, pady=20, command=lambda: button_click(6))
+button_7 = Button(root, text="7", padx=40, pady=20, command=lambda: button_click(7))
+button_8 = Button(root, text="8", padx=40, pady=20, command=lambda: button_click(8))
+button_9 = Button(root, text="9", padx=40, pady=20, command=lambda: button_click(9))
+button_0 = Button(root, text="0", padx=40, pady=20, command=lambda: button_click(0))
+button_clear = Button(root, text="C", padx=39, pady=20, command=clear)
+button_addition = Button(root, text="+", padx=87, pady=20, command=lambda: button_click())
+button_equal = Button(root, text="=", padx=87, pady=20, command=lambda: button_click())
 
 # place buttons on screen
 button_1.grid(row=3, column=0)
