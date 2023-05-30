@@ -24,6 +24,23 @@ def button_click(number):
 # we want to be able to clear the calculator
 def clear():
     e.delete(0, END)
+    f_num = 0
+    final_num = 0
+
+# adding add function
+def add():
+    first_number = e.get()
+    # set global variable
+    global f_num
+    f_num = int(first_number)
+    e.delete(0, END)
+
+# want to grab 
+def equal():
+    global s_num
+    s_num = e.get()
+    e.delete(0, END)
+    e.insert(0, f_num + int(s_num))
 
 # define buttons
 
@@ -41,8 +58,8 @@ button_8 = Button(root, text="8", padx=40, pady=20, command=lambda: button_click
 button_9 = Button(root, text="9", padx=40, pady=20, command=lambda: button_click(9))
 button_0 = Button(root, text="0", padx=40, pady=20, command=lambda: button_click(0))
 button_clear = Button(root, text="C", padx=39, pady=20, command=clear)
-button_addition = Button(root, text="+", padx=87, pady=20, command=lambda: button_click())
-button_equal = Button(root, text="=", padx=87, pady=20, command=lambda: button_click())
+button_addition = Button(root, text="+", padx=87, pady=20, command=add)
+button_equal = Button(root, text="=", padx=87, pady=20, command=equal)
 
 # place buttons on screen
 button_1.grid(row=3, column=0)
