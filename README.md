@@ -1,9 +1,5 @@
 # Tkinter-First
-Learning freecodecamp's tkinter tutorial @ www.youtube.com
+Learning freecodecamp's [tkinter tutorial](https://youtu.be/YXPyB4XeYLA) for simple gui projects.
 
-This is something new. And I just added this :)
-
-# Local Development
-
-1. Open index.html in your browser.
-2. I'm adding another revision.
+## Changelog
+**5/29/23** Updated README.md, completed window, button, and entry implementation. Started simple calculator with addition function.
